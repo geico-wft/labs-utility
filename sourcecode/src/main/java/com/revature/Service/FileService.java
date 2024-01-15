@@ -17,7 +17,7 @@ public class FileService implements iFileService{
 
     @Override
     public void clear() throws LabClearException {
-        File labDirectory = new File("/lab");
+        File labDirectory = new File("lab");
         if(!labDirectory.exists()){
             log.warn("No lab directory found on lab clear.");
         }else{

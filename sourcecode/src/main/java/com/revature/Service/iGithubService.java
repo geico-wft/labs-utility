@@ -1,6 +1,8 @@
 package com.revature.Service;
 
+import com.revature.Exception.GitConfigException;
 import com.revature.Exception.LabOpenException;
+import com.revature.Exception.LabSaveException;
 
 /**
  * An interface defining the expected behavior of a GithubService. This allows us to
@@ -15,8 +17,9 @@ import com.revature.Exception.LabOpenException;
  */
 public interface iGithubService {
 
-    void open(String labName) throws LabOpenException;
+    void open(String labName) throws LabOpenException, GitConfigException;
 
-    void save();
+    void save() throws LabSaveException, GitConfigException;
 
+    String getUsername() throws GitConfigException;
 }

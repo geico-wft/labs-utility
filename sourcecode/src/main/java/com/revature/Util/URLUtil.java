@@ -8,5 +8,13 @@ package com.revature.Util;
  * You can think of the 'static' variable as breaking away from the object-oriented paradigm.
  */
 public class URLUtil {
-    public static final String BASE_URL = "https://github.com/geico-wft-labs";
+    public static final String BASE_URL = "https://github.com/geico-wft-labs/";
+
+    /**
+     * A blank private constructor prevents unintended
+     * instantiation of this class.
+     */
+    private URLUtil(){
+
+    }
 }

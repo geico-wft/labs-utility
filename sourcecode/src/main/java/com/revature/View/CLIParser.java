@@ -1,9 +1,6 @@
 package com.revature.View;
 
-import com.revature.Exception.BadCommandException;
-import com.revature.Exception.LabClearException;
-import com.revature.Exception.LabException;
-import com.revature.Exception.LabOpenException;
+import com.revature.Exception.*;
 import com.revature.Service.iFileService;
 import com.revature.Service.iGithubService;
 
@@ -23,7 +20,7 @@ public class CLIParser {
         this.githubService = githubService;
     }
 
-    public String parse(String input) throws BadCommandException, LabException {
+    public String parse(String input) throws BadCommandException, LabException, GitConfigException {
 //        standardize the user's input and split into an array containing the separate words
         input = input.toLowerCase();
         input = input.trim();
@@ -46,6 +43,9 @@ public class CLIParser {
                 githubService.open(labName);
                 return getRetrievedMessage(labName);
             }
+        }else if(tokens[0].equals("save")){
+            githubService.save();
+            return getSavedMessage();
         }else{
             throw new BadCommandException("the command provided did not match help/clear/open.");
         }
@@ -53,6 +53,9 @@ public class CLIParser {
     public String getHelpMessage(){
         return "You may use the commands 'clear' to clear the workspace's current labs, \n" +
                 "or 'open [labname]' (eg open java-helloworld) to open a lab.";
+    }
+    public String getSavedMessage(){
+        return "Saved the lab progress.";
     }
     public String getClearedMessage(){
         return "Workspace cleared.";

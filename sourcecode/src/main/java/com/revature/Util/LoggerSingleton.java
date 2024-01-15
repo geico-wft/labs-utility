@@ -24,7 +24,7 @@ public class LoggerSingleton {
         return logger;
     }
     /**
-     * Following convention for the singleton design pattern, a private constructor prevents unintended
+     * Following convention for the singleton design pattern, a blank private constructor prevents unintended
      * instantiation of this class.
      */
     private LoggerSingleton(){
