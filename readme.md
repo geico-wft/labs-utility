@@ -1,10 +1,8 @@
-# Labs
-You can run the Labs utility using the command
 # Welcome to LabLoader
 This repository is a utility to help you access Revature coding labs.
 
-# Labs manifest
-Here is a library of all coding labs, in order. Approximate weeks are provided.
+# Labs
+You can run the Labs utility using the command `java -jar labs.jar`, see below the list of labs for usage guide.
 
 ## Week 1 labs
 - java-helloworld
@@ -193,13 +191,20 @@ Here is a library of all coding labs, in order. Approximate weeks are provided.
 - cc-parentheses
 
 # How to use
-## github configuration
-Before you begin the labs at all, you will need to have a personal github account, which is able to push, properly installed & configured on your computer.
 ## CLI
 This utility will function as a Command Line Interface written as an executable jar. A jar is like a set of Java classes that have been packaged together for easy transport & use. you can start it up opening the terminal in your IDE and using the command
 `java -jar labs.jar`
 When you've run the Jar correctly, a set of text should appear instructing you how to open up a lab. labs are not case sensitive, so, for instance, if you'd like to open the java-helloworld lab, you can use the command 
 `open java-helloworld`
+## Github configuration
+Before you begin the labs at all, you will need to have a personal github account, which is able to push, properly installed & configured on your computer. You can test whether the utility is properly configured using the command
+`check`
+after you have run the labs jar as shown above.
+## Other commands
+You also have the commands
+`help`
+`clear` (this will destroy your labs folder without saving, if you'd like to reopen a lab in its previous state)
+`save` (this will manually save your lab, although your progress is already saved whenever you use the open command)
 ## Unit testing
 Many of the labs feature unit testing and TDD. Unit testing is a srategy used extensively in the professional world consisting of some code that can automatically run to ensure that some part of your code runs correctly. In this case, the test cases are there to quickly verify if you've successfully completed the lab. Because the labs provided use a variety of technologies, there are a couple different ways in which the labs need to be run.
 ### Java, SQL, Javalin, Spring
@@ -209,4 +214,4 @@ If tests are present, they are tested using Maven, JUnit, and Selenium. Selenium
 ### React labs
 You will be required to have a working version of node, which will come with npm. You can verify that it is installed `npm --version`. You will need to start the labs using npm start. These labs do not have tests written yet, so you will need to rely on feedback from the broswer.
 
-lab content & labloader authored by ted balashov
+lab content & labloader authored by ted balashov, do not distribute content.
