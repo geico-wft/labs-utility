@@ -38,6 +38,7 @@ public class App {
         }catch (GitConfigException ex){
             System.out.println("There was an exception while attempting to retrieve Git config info! \n" +
                     "This may be because Git is not properly installed and configured. \n" +
+                    "Please set your github username using 'git config --global user.name YOUR_USERNAME' \n" +
                     "Here is the stack trace: ");
             ex.printStackTrace();
         }

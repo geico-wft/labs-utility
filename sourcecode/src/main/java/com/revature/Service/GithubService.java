@@ -59,7 +59,12 @@ public class GithubService implements iGithubService{
     @Override
     public String getUsername() throws GitConfigException {
         try {
-            return cmdService.executeCommand("git config user.name").trim();
+            String username = cmdService.executeCommand("git config user.name").trim();
+            if (username == null || username.length() < 3){
+                throw new GitConfigException("Exception during git username retrieval");
+            }else{
+                return username;
+            }
         }catch (IOException | InterruptedException ex){
             log.warn("Exception while attempting to retrieve user git info");
             throw new GitConfigException("Exception during git username retrieval");
