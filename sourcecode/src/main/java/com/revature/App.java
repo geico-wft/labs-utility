@@ -15,14 +15,15 @@ public class App {
         iCMDService cmdService = new CMDService();
         iFileService fileService = new FileService(cmdService);
         iGithubService githubService = new GithubService(cmdService);
-        CLIParser cliParser = new CLIParser(fileService, githubService);
+        CLIParser cliParser = new CLIParser(fileService, githubService, cmdService);
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please input command: ");
         String input = scanner.nextLine();
 
         try{
-            cliParser.parse(input);
+            String result = cliParser.parse(input);
+            System.out.println(result);
         }catch (BadCommandException ex){
             System.out.println("There was an exception while interpreting your command!\n" +
                     "This may be because you did not format your command properly.\n" +

@@ -23,6 +23,7 @@ public class FileService implements iFileService{
         }else{
             log.info("Attempting clear of existing lab directory.");
             deleteDirectoryHelper(labDirectory);
+            labDirectory.delete();
         }
     }
 
@@ -35,5 +36,10 @@ public class FileService implements iFileService{
             }
         }
         return directoryToBeDeleted.delete();
+    }
+
+    public boolean labDirectoryExists(){
+        File dir = new File("lab");
+        return (dir.exists() && dir.isDirectory());
     }
 }

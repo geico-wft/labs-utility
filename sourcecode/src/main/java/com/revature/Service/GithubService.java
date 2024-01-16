@@ -8,6 +8,8 @@ import com.revature.Util.URLUtil;
 import org.slf4j.Logger;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Service class that manages interaction with Github repositories by leveraging
@@ -30,6 +32,7 @@ public class GithubService implements iGithubService{
             String name = getUsername();
             cmdService.executeCommand("git branch "+name, "lab");
             cmdService.executeCommand("git checkout "+name, "lab");
+            cmdService.executeCommand("git pull origin "+name, "lab");
         }catch(IOException | InterruptedException ex){
             log.warn("Exception while opening lab: "+labName);
             throw new LabOpenException("Exception during attempted lab opening");
@@ -40,9 +43,11 @@ public class GithubService implements iGithubService{
 
     @Override
     public void save() throws LabSaveException, GitConfigException {
+
         try{
-            cmdService.executeCommand("git add .");
-            cmdService.executeCommand("git commit -m \"saving lab progress\"");
+            String time = DateTimeFormatter.ofPattern("MM-dd HH:mm").format(LocalDateTime.now());
+            cmdService.executeCommand("git add .", "lab");
+            cmdService.executeCommand("git commit -m \"saving lab progress: "+time+"\"", "lab");
             String name = getUsername();
             cmdService.executeCommand("git push -u origin "+name, "lab");
         }catch(IOException | InterruptedException ex){

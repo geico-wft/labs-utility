@@ -15,4 +15,5 @@ import com.revature.Exception.LabClearException;
  */
 public interface iFileService {
     void clear() throws LabClearException;
+    boolean labDirectoryExists();
 }

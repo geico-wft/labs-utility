@@ -42,7 +42,7 @@ Notice a few things:
  - Interfaces have been written for some classes, allowing for
    better planning & abstraction of the project.
 
- - Tests have been written for the program.
+ - Some tests have been written for the program (todo.. more tests).
  
    - Unit tests test a single, atomic piece of behavior. Usually,
    this is a single method, which is also fully isolated by using
