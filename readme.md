@@ -156,12 +156,12 @@ You can run the Labs utility using the command `java -jar labs.jar`, see below t
 ## Week 9 labs
 - spr-di
 - spr-applicationcontext
-- spr-beancopes
+- spr-beanscopes
 - spr-boot
 - spr-restcontroller
 - spr-entity
 - spr-lombok
-- spa-jpacrud
+- spr-jpacrud
 - spr-fitnessapi
 - spr-requestparam
 - spr-relationships
